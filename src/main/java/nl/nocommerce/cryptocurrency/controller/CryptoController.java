@@ -1,8 +1,11 @@
 package nl.nocommerce.cryptocurrency.controller;
 
 import nl.nocommerce.cryptocurrency.CustomException.CryptoCurrencyNotFoundException;
+import nl.nocommerce.cryptocurrency.InitRunner;
 import nl.nocommerce.cryptocurrency.entity.Crypto;
 import nl.nocommerce.cryptocurrency.repository.CryptoRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +15,8 @@ import java.util.List;
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CryptoController {
+
+    private static final Logger logger = LoggerFactory.getLogger(CryptoController.class);
 
     @Autowired
     private CryptoRepository repository;
@@ -23,17 +28,20 @@ public class CryptoController {
 
     @GetMapping("/currencies")
     List<Crypto> all() {
+        logger.info("Getting all cryptos");
         return repository.findAll();
     }
 
     @GetMapping("/currencies/{id}")
     Crypto get(@PathVariable Long id) {
+        logger.info("Getting crypto with id: "+ id);
         return repository.findById(id)
                 .orElseThrow(() -> new CryptoCurrencyNotFoundException(id));
     }
 
     @PostMapping("/currencies")
     Crypto add(@RequestBody Crypto newCrypto ) {
+        logger.info("saving crypto:"+ newCrypto.getName());
         return repository.save(newCrypto);
     }
 
@@ -45,15 +53,18 @@ public class CryptoController {
                     cryptoCurrency.setTicker(newCrypto.getTicker());
                     cryptoCurrency.setNumberOfCoins(newCrypto.getNumberOfCoins());
                     cryptoCurrency.setMarketCap(newCrypto.getMarketCap());
+                    logger.info("Updating crypto with id: "+ id);
                     return repository.save(cryptoCurrency);
                 })
                 .orElseGet(()-> {
+                    logger.info("Adding crypto with id: "+ id);
                     return repository.save(newCrypto);
                 });
     }
 
     @DeleteMapping("/currencies/{id}")
     void delete(@PathVariable Long id) {
+        logger.info("Deleting crypto with id: "+id );
         repository.deleteById(id);
     }
 }
