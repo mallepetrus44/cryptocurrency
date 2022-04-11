@@ -21,6 +21,8 @@ public class InitRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+            logger.info("Populating database");
+
             repository.save(new Crypto.Builder("BTC", "Bitcoin").marketCap(BigDecimal.valueOf(189580000000L)).numberOfCoins(16770000L).build());
             repository.save(new Crypto.Builder("ETH", "Ethereum").marketCap(BigDecimal.valueOf(69280000000L)).numberOfCoins(96710000L).build());
             repository.save(new Crypto.Builder("XRP", "Ripple").marketCap(BigDecimal.valueOf(64750000000L)).numberOfCoins(38590000000L).build());
