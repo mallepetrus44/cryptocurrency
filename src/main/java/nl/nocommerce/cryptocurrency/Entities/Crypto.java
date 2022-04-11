@@ -1,4 +1,4 @@
-package nl.nocommerce.cryptocurrency.entity;
+package nl.nocommerce.cryptocurrency.Entities;
 
 import lombok.Data;
 

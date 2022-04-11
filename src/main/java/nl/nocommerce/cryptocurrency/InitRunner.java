@@ -1,7 +1,7 @@
 package nl.nocommerce.cryptocurrency;
 
-import nl.nocommerce.cryptocurrency.entity.Crypto;
-import nl.nocommerce.cryptocurrency.repository.CryptoRepository;
+import nl.nocommerce.cryptocurrency.Entities.Crypto;
+import nl.nocommerce.cryptocurrency.Repositories.CryptoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

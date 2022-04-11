@@ -1,9 +1,8 @@
-package nl.nocommerce.cryptocurrency.controller;
+package nl.nocommerce.cryptocurrency.Controllers;
 
 import nl.nocommerce.cryptocurrency.CustomException.CryptoCurrencyNotFoundException;
-import nl.nocommerce.cryptocurrency.InitRunner;
-import nl.nocommerce.cryptocurrency.entity.Crypto;
-import nl.nocommerce.cryptocurrency.repository.CryptoRepository;
+import nl.nocommerce.cryptocurrency.Entities.Crypto;
+import nl.nocommerce.cryptocurrency.Repositories.CryptoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
