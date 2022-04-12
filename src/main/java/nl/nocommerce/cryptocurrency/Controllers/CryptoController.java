@@ -39,7 +39,7 @@ public class CryptoController {
 
     @PostMapping("/currencies")
     Crypto add(@RequestBody Crypto newCrypto ) {
-        logger.info("saving crypto:"+ newCrypto.getName());
+        logger.info("saving crypto: "+ newCrypto.getName());
         return repository.save(newCrypto);
     }
 
