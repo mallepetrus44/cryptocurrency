@@ -5,7 +5,6 @@ import nl.nocommerce.cryptocurrency.Entities.Crypto;
 import nl.nocommerce.cryptocurrency.Repositories.CryptoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -19,13 +18,11 @@ public class CryptoController {
 
     /* TODO controller communicates directly with repo, add service-layer for logic */
 
-    @Autowired
-    private CryptoRepository repository;
+    private final CryptoRepository repository;
 
-    public void CryptoCurrencyController(CryptoRepository repository) {
+    public CryptoController(CryptoRepository repository) {
         this.repository = repository;
     }
-
 
     @GetMapping("/currencies")
     List<Crypto> all() {
