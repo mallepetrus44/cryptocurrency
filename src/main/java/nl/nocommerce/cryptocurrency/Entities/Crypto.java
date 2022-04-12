@@ -79,7 +79,13 @@ public class Crypto {
         }
 
         public Crypto build() {
-            return new Crypto(this);
+            Crypto crypto = new Crypto(this);
+//            validateCryptoCurrencyObject((crypto));
+            return crypto;
+        }
+
+        private void validateCryptoCurrencyObject(Crypto crypto) {
+            /* TODO: add validation */
         }
     }
 }
