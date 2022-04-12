@@ -35,27 +35,6 @@ public class Crypto {
         this.numberOfCoins = builder.numberOfCoins;
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public String getTicker() {
-//        return ticker;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public BigDecimal getMarketCap() {
-//        return marketCap;
-//    }
-//
-//    public Long getNumberOfCoins() {
-//        return numberOfCoins;
-//    }
-
-
     public static class Builder {
 
         private String ticker;
